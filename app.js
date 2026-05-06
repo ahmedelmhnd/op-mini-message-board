@@ -3,7 +3,7 @@ const app = express();
 const path = require("node:path");
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view enginer", "ejs");
+app.set("view engine", "ejs");
 
 const messages = [
   {
@@ -22,12 +22,12 @@ const messages = [
 
 
 app.get("/", (req, res) => {
-    res.render()
+    res.render("index", {title: "Mini Message Board!", messages: messages})
 })
 
-app.get("/new", (req, res) => {
-    res.render()
-})
+// app.get("/new", (req, res) => {
+//     res.render()
+// })
 
 const PORT = 3000;
 app.listen(PORT, (error) => {
