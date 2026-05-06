@@ -26,16 +26,21 @@ const messages = [
 
 app.get("/", (req, res) => {
     res.render("index", {title: "Mini Message Board!", messages: messages})
-})
+});
 
 app.get("/new", (req, res) => {
     res.render("form", {})
-})
+});
 
 app.post("/new", (req, res) => {
     messages.push({ text: req.body.text, user: req.body.name, added: new Date() });
     res.redirect("/");
-})
+});
+
+app.get("/message/:id", (req, res) => {
+    const message = messages[req.params.id];
+    res.render("message", {title: "Message Details", message: message})
+});
 
 const PORT = 3000;
 app.listen(PORT, (error) => {

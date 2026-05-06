@@ -4,9 +4,10 @@
     </head>
     <body>
         <ul>
-        <% messages.forEach(message => {  %> 
+        <% messages.forEach((message, index) => {  %> 
             <li> 
-                User: <%= message.user %>, text: <%= message.text %>, Date: <%= message.added %> 
+                User: <%= message.user %>, text: <%= message.text %>, Date: <%= message.added %>
+                <a href="/message/<%= index %>">Open</a>
             </li>
         <%  }); %>  
         </ul>
